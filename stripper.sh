@@ -56,8 +56,8 @@ then
   IFS=
   read SPATT
   echo -n "Removing pattern \"$SPATT\"...    "
-  SPATT=`echo "$SPATT" | sed -e 's/\[/\\\[/g' -e 's/\]/\\\]/g' -e 's/ /\\\ /g' -e 's/\./\\\./g' -e 's/{/\\\{/g' -e 's/}/\\\}/g' -e 's/\!/\\\!/g' -e 's/\&/\\\&/g' `
-																												#Escape out all special characters so it works in sed
+  SPATT=`echo "$SPATT" | sed -e 's/\[/\\\[/g' -e 's/\]/\\\]/g' -e 's/ /\\\ /g' -e 's/\./\\\./g'\
+														 -e 's/{/\\\{/g' -e 's/}/\\\}/g' -e 's/\!/\\\!/g' -e 's/\&/\\\&/g' `				#Escape out all special characters so it works in sed
   for i in *
   do
     FNAME=`echo "$i" | sed s/"$SPATT"//`
